@@ -1,8 +1,5 @@
-﻿
-namespace Keyboard_Mouse_Mange
-{
-    class APIConstansts
-    {
+﻿namespace Keyboard_Mouse_Mange {
+    class APIConstansts {
         public const int WH_MOUSE_LL = 14;
         public const int WH_KEYBOARD_LL = 13;
         public const int WH_MOUSE = 7;
@@ -41,6 +38,6 @@ namespace Keyboard_Mouse_Mange
         public const int WM_IME_SETCONTEXT = 0x0281;
         public const int WM_CHAR = 0x0102;
         public const int WM_IME_COMPOSITION = 0x010F;
-        public const int GCS_COMPSTR = 0x0008;       
+        public const int GCS_COMPSTR = 0x0008;
     }
 }

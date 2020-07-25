@@ -3,16 +3,13 @@ using System.Runtime.InteropServices;
 
 using static Wifi_ShowNetwork.WlanInterface;
 
-namespace Wifi_ShowNetwork
-{
-    public class PublicFunction
-    {
+namespace Wifi_ShowNetwork {
+    public class PublicFunction {
         #region Enum 
 
         // https://docs.microsoft.com/en-us/windows-hardware/drivers/ddi/content/wlantypes/ne-wlantypes-_dot11_bss_type
         // https://www.pinvoke.net/default.aspx/Enums/DOT11_BSS_TYPE.html
-        public enum DOT11_BSS_TYPE
-        {
+        public enum DOT11_BSS_TYPE {
             dot11_BSS_type_infrastructure = 1,
             dot11_BSS_type_independent = 2,
             dot11_BSS_type_any = 3,
@@ -20,8 +17,7 @@ namespace Wifi_ShowNetwork
 
         // https://docs.microsoft.com/en-us/windows-hardware/drivers/ddi/content/windot11/ne-windot11-_dot11_phy_type
         // https://www.pinvoke.net/default.aspx/Enums/DOT11_PHY_TYPE.html
-        public enum DOT11_PHY_TYPE
-        {
+        public enum DOT11_PHY_TYPE {
             dot11_phy_type_unknown,
             dot11_phy_type_any = dot11_phy_type_unknown,
             dot11_phy_type_fhss,
@@ -38,8 +34,7 @@ namespace Wifi_ShowNetwork
 
         // https://docs.microsoft.com/en-us/windows-hardware/drivers/ddi/content/wlantypes/ne-wlantypes-_dot11_auth_algorithm
         // https://www.pinvoke.net/default.aspx/Enums/DOT11_AUTH_ALGORITHM.html
-        public enum DOT11_AUTH_ALGORITHM
-        {
+        public enum DOT11_AUTH_ALGORITHM {
             DOT11_AUTH_ALGO_80211_Open = 1,
             DOT11_AUTH_ALGO_80211_Shared_Key = 2,
             DOT11_AUTH_ALGO_WPA = 3,
@@ -53,8 +48,7 @@ namespace Wifi_ShowNetwork
 
         // https://docs.microsoft.com/en-us/windows-hardware/drivers/ddi/content/wlantypes/ne-wlantypes-_dot11_cipher_algorithm
         // https://www.pinvoke.net/default.aspx/Enums/DOT11_CIPHER_ALGORITHM.html
-        public enum DOT11_CIPHER_ALGORITHM
-        {
+        public enum DOT11_CIPHER_ALGORITHM {
             DOT11_CIPHER_ALGO_NONE = 0,
             DOT11_CIPHER_ALGO_WEP40 = 1,
             DOT11_CIPHER_ALGO_TKIP = 2,
@@ -70,8 +64,7 @@ namespace Wifi_ShowNetwork
         // https://docs.microsoft.com/en-us/windows/desktop/api/wlanapi/nf-wlanapi-wlangetavailablenetworklist
         // 自行寫
         [Flags]
-        public enum WlanGetAvailableNetworkListFlags
-        {
+        public enum WlanGetAvailableNetworkListFlags {
             WLAN_AVAILABLE_NETWORK_INCLUDE_ALL_ADHOC_PROFILES = 0x00000001,
             WLAN_AVAILABLE_NETWORK_INCLUDE_ALL_MANUAL_HIDDEN_PROFILES = 0x00000002
         }
@@ -79,8 +72,7 @@ namespace Wifi_ShowNetwork
         // https://msdn.microsoft.com/en-us/library/windows/desktop/ms706902(v=vs.85).aspx
         // https://www.pinvoke.net/default.aspx/Enums/WLAN_NOTIFICATION_SOURCE.html
         [Flags]
-        public enum WLAN_NOTIFICATION_SOURCE : uint
-        {
+        public enum WLAN_NOTIFICATION_SOURCE : uint {
             WLAN_NOTIFICATION_SOURCE_NONE = 0,
             WLAN_NOTIFICATION_SOURCE_ONEX = 0X00000004,
             WLAN_NOTIFICATION_SOURCE_ACM = 0X00000008,
@@ -93,8 +85,7 @@ namespace Wifi_ShowNetwork
 
         // https://docs.microsoft.com/en-us/windows/desktop/api/wlanapi/ne-wlanapi-_wlan_notification_acm
         // https://www.pinvoke.net/default.aspx/Structures.WLAN_NOTIFICATION_CODE_ACM
-        public enum WLAN_NOTIFICATION_CODE_ACM : short
-        {
+        public enum WLAN_NOTIFICATION_CODE_ACM : short {
             wlan_notification_acm_start = 0,
             wlan_notification_acm_autoconf_enabled,
             wlan_notification_acm_autoconf_disabled,
@@ -125,8 +116,7 @@ namespace Wifi_ShowNetwork
 
         // https://docs.microsoft.com/en-us/windows/desktop/api/wlanapi/ne-wlanapi-_wlan_notification_msm
         // https://www.pinvoke.net/default.aspx/Structures.WLAN_NOTIFICATION_CODE_MSM
-        public enum WLAN_NOTIFICATION_CODE_MSM : short
-        {
+        public enum WLAN_NOTIFICATION_CODE_MSM : short {
             wlan_notification_msm_start = 0,
             wlan_notification_msm_associating,
             wlan_notification_msm_associated,
@@ -147,8 +137,7 @@ namespace Wifi_ShowNetwork
 
         // https://docs.microsoft.com/en-us/windows/desktop/api/wlanapi/ne-wlanapi-_wlan_interface_state
         // https://www.pinvoke.net/default.aspx/Enums/WLAN_INTERFACE_STATE.html
-        public enum WLAN_INTERFACE_STATE
-        {
+        public enum WLAN_INTERFACE_STATE {
             wlan_interface_state_not_ready = 0,
             wlan_interface_state_connected = 1,
             wlan_interface_state_ad_hoc_network_formed = 2,
@@ -161,8 +150,7 @@ namespace Wifi_ShowNetwork
 
         // https://en.wikipedia.org/wiki/List_of_WLAN_channels
         // 自行寫
-        public enum ChannelFrequency_enum
-        {
+        public enum ChannelFrequency_enum {
             Channel_1 = 2412,
             Channel_2 = 2417,
             Channel_3 = 2422,
@@ -243,8 +231,7 @@ namespace Wifi_ShowNetwork
         // https://docs.microsoft.com/en-us/windows/desktop/api/wlanapi/nf-wlanapi-wlansetprofile
         // 自行寫
         [Flags]
-        public enum WlanProfileFlags
-        {
+        public enum WlanProfileFlags {
             /// <remarks>
             /// The only option available on Windows XP SP2.
             /// </remarks>
@@ -255,8 +242,7 @@ namespace Wifi_ShowNetwork
 
         // https://docs.microsoft.com/zh-tw/windows/desktop/NativeWiFi/wlan-reason-code
         // Managed Wifi Source code
-        public enum WlanReasonCode
-        {
+        public enum WlanReasonCode {
             Success = 0,
             // general codes
             UNKNOWN = 0x10000 + 1,
@@ -504,9 +490,8 @@ namespace Wifi_ShowNetwork
 
         // https://docs.microsoft.com/en-us/windows/desktop/api/wlanapi/ns-wlanapi-_wlan_interface_info_list
         // https://www.pinvoke.net/default.aspx/Structures/WLAN_INTERFACE_INFO_LIST.html
-        [StructLayout(LayoutKind.Sequential)]
-        public class WLAN_INTERFACE_INFO_LIST
-        {
+        [StructLayout (LayoutKind.Sequential)]
+        public class WLAN_INTERFACE_INFO_LIST {
             public int dwNumberOfItems;
             public int dwIndex;
             public WLAN_INTERFACE_INFO[] InterfaceInfo;
@@ -514,23 +499,20 @@ namespace Wifi_ShowNetwork
 
         // https://msdn.microsoft.com/en-us/library/windows/desktop/ms706902(v=vs.85).aspx 
         // https://www.pinvoke.net/default.aspx/Structures/WLAN_NOTIFICATION_DATA.html
-        [StructLayout(LayoutKind.Sequential)]
-        public struct WLAN_NOTIFICATION_DATA
-        {
+        [StructLayout (LayoutKind.Sequential)]
+        public struct WLAN_NOTIFICATION_DATA {
             public WLAN_NOTIFICATION_SOURCE notificationSource;
             public int notificationCode;
             public Guid interfaceGuid;
             public int dataSize;
             public IntPtr dataPtr;
 
-            public object NotificationCode
-            {
-                get
-                {
+            public object NotificationCode {
+                get {
                     if (notificationSource == WLAN_NOTIFICATION_SOURCE.WLAN_NOTIFICATION_SOURCE_MSM)
-                        return (WLAN_NOTIFICATION_CODE_MSM)notificationCode;
+                        return (WLAN_NOTIFICATION_CODE_MSM) notificationCode;
                     else if (notificationSource == WLAN_NOTIFICATION_SOURCE.WLAN_NOTIFICATION_SOURCE_ACM)
-                        return (WLAN_NOTIFICATION_CODE_ACM)notificationCode;
+                        return (WLAN_NOTIFICATION_CODE_ACM) notificationCode;
                     else
                         return notificationCode;
                 }
@@ -539,36 +521,32 @@ namespace Wifi_ShowNetwork
 
         // https://docs.microsoft.com/en-us/windows/desktop/api/wlanapi/ns-wlanapi-_wlan_available_network_list
         // https://www.pinvoke.net/default.aspx/Structures.WLAN_AVAILABLE_NETWORK_LIST
-        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-        public struct WLAN_AVAILABLE_NETWORK_LIST
-        {
+        [StructLayout (LayoutKind.Sequential, CharSet = CharSet.Unicode)]
+        public struct WLAN_AVAILABLE_NETWORK_LIST {
             public uint dwNumberOfItems;
             public uint dwIndex;
             public WLAN_AVAILABLE_NETWORK[] wlanAvailableNetwork;
 
-            public WLAN_AVAILABLE_NETWORK_LIST(IntPtr ppAvailableNetworkList)
-            {
-                dwNumberOfItems = (uint)Marshal.ReadInt32(ppAvailableNetworkList);
-                dwIndex = (uint)Marshal.ReadInt32(ppAvailableNetworkList, 4);
+            public WLAN_AVAILABLE_NETWORK_LIST (IntPtr ppAvailableNetworkList) {
+                dwNumberOfItems = (uint) Marshal.ReadInt32 (ppAvailableNetworkList);
+                dwIndex = (uint) Marshal.ReadInt32 (ppAvailableNetworkList, 4);
                 wlanAvailableNetwork = new WLAN_AVAILABLE_NETWORK[dwNumberOfItems];
 
-                for (int i = 0; i < dwNumberOfItems; i++)
-                {
-                    IntPtr pWlanAvailableNetwork = new IntPtr(ppAvailableNetworkList.ToInt32() + i * Marshal.SizeOf(typeof(WLAN_AVAILABLE_NETWORK)) + 8);
-                    wlanAvailableNetwork[i] = (WLAN_AVAILABLE_NETWORK)Marshal.PtrToStructure(pWlanAvailableNetwork, typeof(WLAN_AVAILABLE_NETWORK));
+                for (int i = 0; i < dwNumberOfItems; i++) {
+                    IntPtr pWlanAvailableNetwork = new IntPtr (ppAvailableNetworkList.ToInt32 () + i * Marshal.SizeOf (typeof (WLAN_AVAILABLE_NETWORK)) + 8);
+                    wlanAvailableNetwork[i] = (WLAN_AVAILABLE_NETWORK) Marshal.PtrToStructure (pWlanAvailableNetwork, typeof (WLAN_AVAILABLE_NETWORK));
                 }
-                WlanFreeMemory(ppAvailableNetworkList);
+                WlanFreeMemory (ppAvailableNetworkList);
             }
         }
 
         // https://docs.microsoft.com/en-us/windows/desktop/api/wlanapi/ns-wlanapi-_wlan_available_network
         // https://www.pinvoke.net/default.aspx/Structures.WLAN_AVAILABLE_NETWORK
-        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-        public struct WLAN_AVAILABLE_NETWORK
-        {
+        [StructLayout (LayoutKind.Sequential, CharSet = CharSet.Unicode)]
+        public struct WLAN_AVAILABLE_NETWORK {
             #region 原屬性
 
-            [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 256)]
+            [MarshalAs (UnmanagedType.ByValTStr, SizeConst = 256)]
             public string strProfileName;
             public DOT11_SSID dot11Ssid;
             public DOT11_BSS_TYPE dot11BssType;
@@ -576,7 +554,7 @@ namespace Wifi_ShowNetwork
             public bool bNetworkConnectable;
             public uint wlanNotConnectableReason;
             public uint uNumberOfPhyTypes;
-            [MarshalAs(UnmanagedType.ByValArray, SizeConst = 8)]
+            [MarshalAs (UnmanagedType.ByValArray, SizeConst = 8)]
             public DOT11_PHY_TYPE[] dot11PhyTypes;
             public bool bMorePhyTypes;
             public uint wlanSignalQuality;
@@ -590,12 +568,9 @@ namespace Wifi_ShowNetwork
 
             public string SSID => dot11Ssid.ucSSID;
 
-            public string Radio
-            {
-                get
-                {
-                    switch (dot11PhyTypes[0])
-                    {
+            public string Radio {
+                get {
+                    switch (dot11PhyTypes[0]) {
                         case DOT11_PHY_TYPE.dot11_phy_type_ofdm:
                             return "802.11a";
                         case DOT11_PHY_TYPE.dot11_phy_type_hrdsss:
@@ -607,19 +582,16 @@ namespace Wifi_ShowNetwork
                         case DOT11_PHY_TYPE.dot11_phy_type_vht:
                             return "802.11ac";
                         default:
-                            return dot11PhyTypes[0].ToString();
+                            return dot11PhyTypes[0].ToString ();
                     }
                 }
             }
 
-            public string Network_Type => dot11BssType.ToString().Substring("dot11_BSS_type_".Length);
+            public string Network_Type => dot11BssType.ToString ().Substring ("dot11_BSS_type_".Length);
 
-            public string Authentication
-            {
-                get
-                {
-                    switch (dot11DefaultAuthAlgorithm)
-                    {
+            public string Authentication {
+                get {
+                    switch (dot11DefaultAuthAlgorithm) {
                         case DOT11_AUTH_ALGORITHM.DOT11_AUTH_ALGO_80211_Open:
                             return "Open";
                         case DOT11_AUTH_ALGORITHM.DOT11_AUTH_ALGO_WPA_PSK:
@@ -627,48 +599,44 @@ namespace Wifi_ShowNetwork
                         case DOT11_AUTH_ALGORITHM.DOT11_AUTH_ALGO_RSNA_PSK:
                             return "WPA2-Personal";
                         default:
-                            return dot11DefaultAuthAlgorithm.ToString();
+                            return dot11DefaultAuthAlgorithm.ToString ();
                     }
                 }
             }
 
-            public string Encryption => dot11DefaultCipherAlgorithm.ToString().Substring("DOT11_CIPHER_ALGO_".Length);
+            public string Encryption => dot11DefaultCipherAlgorithm.ToString ().Substring ("DOT11_CIPHER_ALGO_".Length);
 
-            public string Signal => wlanSignalQuality.ToString() + "%";
+            public string Signal => wlanSignalQuality.ToString () + "%";
         }
 
         // https://docs.microsoft.com/zh-tw/windows/desktop/api/wlanapi/ns-wlanapi-_wlan_bss_list
         // https://stackoverflow.com/questions/6332359/find-the-total-size-of-an-array-of-objects-with-only-a-reference-pointer
-        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-        public struct WLAN_BSS_LIST
-        {
+        [StructLayout (LayoutKind.Sequential, CharSet = CharSet.Unicode)]
+        public struct WLAN_BSS_LIST {
             public uint dwTotalSize;
             public uint dwNumberOfItems;
             public WLAN_BSS_ENTRY[] wlanBssEntries;
 
-            public WLAN_BSS_LIST(IntPtr ppBssList)
-            {
-                dwTotalSize = (uint)Marshal.ReadInt32(ppBssList);
-                dwNumberOfItems = (uint)Marshal.ReadInt32(ppBssList, 4);
+            public WLAN_BSS_LIST (IntPtr ppBssList) {
+                dwTotalSize = (uint) Marshal.ReadInt32 (ppBssList);
+                dwNumberOfItems = (uint) Marshal.ReadInt32 (ppBssList, 4);
                 wlanBssEntries = new WLAN_BSS_ENTRY[dwNumberOfItems];
 
-                for (int i = 0; i < dwNumberOfItems; i++)
-                {
-                    IntPtr pWlanBssEntry = new IntPtr(ppBssList.ToInt32() + i * Marshal.SizeOf(typeof(WLAN_BSS_ENTRY)) + 8);
-                    wlanBssEntries[i] = (WLAN_BSS_ENTRY)Marshal.PtrToStructure(pWlanBssEntry, typeof(WLAN_BSS_ENTRY));
+                for (int i = 0; i < dwNumberOfItems; i++) {
+                    IntPtr pWlanBssEntry = new IntPtr (ppBssList.ToInt32 () + i * Marshal.SizeOf (typeof (WLAN_BSS_ENTRY)) + 8);
+                    wlanBssEntries[i] = (WLAN_BSS_ENTRY) Marshal.PtrToStructure (pWlanBssEntry, typeof (WLAN_BSS_ENTRY));
                 }
-                WlanFreeMemory(ppBssList);
+                WlanFreeMemory (ppBssList);
             }
         }
 
         // https://docs.microsoft.com/en-us/windows/desktop/api/wlanapi/ns-wlanapi-_wlan_bss_entry
         // https://stackoverflow.com/questions/39564080/wlangetnetworkbsslist-with-c-sharp-on-windows-10
-        public struct WLAN_BSS_ENTRY
-        {
+        public struct WLAN_BSS_ENTRY {
             #region 原屬性
             public DOT11_SSID dot11Ssid;
             public uint uPhyId;
-            [MarshalAs(UnmanagedType.ByValArray, SizeConst = 6)]
+            [MarshalAs (UnmanagedType.ByValArray, SizeConst = 6)]
             public byte[] dot11Bssid;
             public DOT11_BSS_TYPE dot11BssType;
             public DOT11_PHY_TYPE dot11BssPhyType;
@@ -685,77 +653,66 @@ namespace Wifi_ShowNetwork
             public uint ulIeSize;
             #endregion
 
-            public string MAC
-            {
-                get
-                {
+            public string MAC {
+                get {
                     string TempMac = "";
                     for (int i = 0; i < dot11Bssid.Length; i++)
-                        TempMac += dot11Bssid[i].ToString("x2").PadLeft(2, '0'); // 串接Mac
+                        TempMac += dot11Bssid[i].ToString ("x2").PadLeft (2, '0'); // 串接Mac
                     for (int i = 2; i < TempMac.Length; i += 3)
-                        TempMac = TempMac.Insert(i, ":"); // 插入Mac的分隔符號
+                        TempMac = TempMac.Insert (i, ":"); // 插入Mac的分隔符號
 
                     return TempMac;
                 }
             }
 
-            public string Channel => ((ChannelFrequency_enum)(ulChCenterFrequency / 1000)).ToString().Substring("Channel_".Length);
+            public string Channel => ((ChannelFrequency_enum) (ulChCenterFrequency / 1000)).ToString ().Substring ("Channel_".Length);
 
-            public string Speed
-            {
-                get
-                {
+            public string Speed {
+                get {
                     double MaxSpeed = 0;
                     for (int i = 0; i < wlanRateSet.rateSetLength; i++)
                         if (wlanRateSet.rateSet[i] != 0)
-                            MaxSpeed = Math.Max(MaxSpeed, wlanRateSet.GetRateInMbps(i));
+                            MaxSpeed = Math.Max (MaxSpeed, wlanRateSet.GetRateInMbps (i));
 
-                    return MaxSpeed.ToString();
+                    return MaxSpeed.ToString ();
                 }
             }
         }
 
         // https://docs.microsoft.com/zh-tw/windows/desktop/api/wlanapi/ns-wlanapi-_wlan_profile_info_list
         // https://www.pinvoke.net/default.aspx/Structures.WLAN_PROFILE_INFO_LIST
-        public struct WLAN_PROFILE_INFO_LIST
-        {
+        public struct WLAN_PROFILE_INFO_LIST {
             public uint dwNumberOfItems;
             public uint dwIndex;
             public WLAN_PROFILE_INFO[] ProfileInfo;
 
-            public WLAN_PROFILE_INFO_LIST(IntPtr ppProfileList)
-            {
-                dwNumberOfItems = (uint)Marshal.ReadInt32(ppProfileList);
-                dwIndex = (uint)Marshal.ReadInt32(ppProfileList, 4);
+            public WLAN_PROFILE_INFO_LIST (IntPtr ppProfileList) {
+                dwNumberOfItems = (uint) Marshal.ReadInt32 (ppProfileList);
+                dwIndex = (uint) Marshal.ReadInt32 (ppProfileList, 4);
                 ProfileInfo = new WLAN_PROFILE_INFO[dwNumberOfItems];
 
-                for (int i = 0; i < dwNumberOfItems; i++)
-                {
-                    IntPtr pProfileList = new IntPtr(ppProfileList.ToInt32() + i * Marshal.SizeOf(typeof(WLAN_PROFILE_INFO)) + 8);
-                    ProfileInfo[i] = (WLAN_PROFILE_INFO)Marshal.PtrToStructure(pProfileList, typeof(WLAN_PROFILE_INFO));
+                for (int i = 0; i < dwNumberOfItems; i++) {
+                    IntPtr pProfileList = new IntPtr (ppProfileList.ToInt32 () + i * Marshal.SizeOf (typeof (WLAN_PROFILE_INFO)) + 8);
+                    ProfileInfo[i] = (WLAN_PROFILE_INFO) Marshal.PtrToStructure (pProfileList, typeof (WLAN_PROFILE_INFO));
                 }
-                WlanFreeMemory(ppProfileList);
+                WlanFreeMemory (ppProfileList);
             }
         }
 
         // https://www.pinvoke.net/default.aspx/Structures.WLAN_PROFILE_INFO
         // https://docs.microsoft.com/zh-tw/windows/desktop/api/wlanapi/ns-wlanapi-_wlan_profile_info
-        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-        public struct WLAN_PROFILE_INFO
-        {
-            [MarshalAs(UnmanagedType.ByValArray, SizeConst = 256)]
+        [StructLayout (LayoutKind.Sequential, CharSet = CharSet.Unicode)]
+        public struct WLAN_PROFILE_INFO {
+            [MarshalAs (UnmanagedType.ByValArray, SizeConst = 256)]
             public char[] strInterfaceDescription;
             public int dwFlags;
 
-            public string Description
-            {
-                get
-                {
+            public string Description {
+                get {
                     string temp = "";
 
-                    for (int i = 0; i < strInterfaceDescription.Length; i++)
-                    {
-                        if (Convert.ToInt32(strInterfaceDescription[i]) != 0)
+                    for (int i = 0; i < strInterfaceDescription.Length; i++) {
+                        if (Convert.ToInt32 (strInterfaceDescription[i]) != 0)
                             temp += strInterfaceDescription[i];
                     }
                     return temp;
@@ -766,41 +723,35 @@ namespace Wifi_ShowNetwork
 
         // https://docs.microsoft.com/en-us/windows-hardware/drivers/ddi/content/wlantypes/ns-wlantypes-_dot11_ssid
         // https://www.pinvoke.net/default.aspx/Structures/DOT11_SSID.html
-        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-        public struct DOT11_SSID
-        {
+        [StructLayout (LayoutKind.Sequential, CharSet = CharSet.Ansi)]
+        public struct DOT11_SSID {
             public uint uSSIDLength;
-            [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 32)]
+            [MarshalAs (UnmanagedType.ByValTStr, SizeConst = 32)]
             public string ucSSID;
         }
 
         // https://docs.microsoft.com/zh-tw/windows/desktop/api/wlanapi/ns-wlanapi-_wlan_rate_set
         // https://stackoverflow.com/questions/39564080/wlangetnetworkbsslist-with-c-sharp-on-windows-10
-        [StructLayout(LayoutKind.Sequential)]
-        public struct WLAN_RATE_SET
-        {
+        [StructLayout (LayoutKind.Sequential)]
+        public struct WLAN_RATE_SET {
             public uint rateSetLength;
-            [MarshalAs(UnmanagedType.ByValArray, SizeConst = 126)]
+            [MarshalAs (UnmanagedType.ByValArray, SizeConst = 126)]
             public ushort[] rateSet;
 
-            public double GetRateInMbps(int rate) => (rateSet[rate] & 0x7FFF) * 0.5;
+            public double GetRateInMbps (int rate) => (rateSet[rate] & 0x7FFF) * 0.5;
         }
 
         // 因為單個熱點資訊是存在兩個不同Struct 所以用一個新的Struct包裝起來
-        public struct Wlan_Hotpot
-        {
+        public struct Wlan_Hotpot {
             public WLAN_AVAILABLE_NETWORK SelectAvailableNetwork;
             public WLAN_BSS_ENTRY SelectBssEnreyNetwork;
 
             #region 熱點資訊
             public string SSID => SelectAvailableNetwork.dot11Ssid.ucSSID;
 
-            public string Radio
-            {
-                get
-                {
-                    switch (SelectAvailableNetwork.dot11PhyTypes[0])
-                    {
+            public string Radio {
+                get {
+                    switch (SelectAvailableNetwork.dot11PhyTypes[0]) {
                         case DOT11_PHY_TYPE.dot11_phy_type_ofdm:
                             return "802.11a";
                         case DOT11_PHY_TYPE.dot11_phy_type_hrdsss:
@@ -812,19 +763,16 @@ namespace Wifi_ShowNetwork
                         case DOT11_PHY_TYPE.dot11_phy_type_vht:
                             return "802.11ac";
                         default:
-                            return SelectAvailableNetwork.dot11PhyTypes[0].ToString();
+                            return SelectAvailableNetwork.dot11PhyTypes[0].ToString ();
                     }
                 }
             }
 
-            public string Network_Type => SelectAvailableNetwork.dot11BssType.ToString().Substring("dot11_BSS_type_".Length);
+            public string Network_Type => SelectAvailableNetwork.dot11BssType.ToString ().Substring ("dot11_BSS_type_".Length);
 
-            public string Authentication
-            {
-                get
-                {
-                    switch (SelectAvailableNetwork.dot11DefaultAuthAlgorithm)
-                    {
+            public string Authentication {
+                get {
+                    switch (SelectAvailableNetwork.dot11DefaultAuthAlgorithm) {
                         case DOT11_AUTH_ALGORITHM.DOT11_AUTH_ALGO_80211_Open:
                             return "Open";
                         case DOT11_AUTH_ALGORITHM.DOT11_AUTH_ALGO_WPA_PSK:
@@ -832,48 +780,43 @@ namespace Wifi_ShowNetwork
                         case DOT11_AUTH_ALGORITHM.DOT11_AUTH_ALGO_RSNA_PSK:
                             return "WPA2-Personal";
                         default:
-                            return SelectAvailableNetwork.dot11DefaultAuthAlgorithm.ToString();
+                            return SelectAvailableNetwork.dot11DefaultAuthAlgorithm.ToString ();
                     }
                 }
             }
 
-            public string Encryption => SelectAvailableNetwork.dot11DefaultCipherAlgorithm.ToString().Substring("DOT11_CIPHER_ALGO_".Length);
+            public string Encryption => SelectAvailableNetwork.dot11DefaultCipherAlgorithm.ToString ().Substring ("DOT11_CIPHER_ALGO_".Length);
 
-            public string Signal => SelectAvailableNetwork.wlanSignalQuality.ToString() + "%";
+            public string Signal => SelectAvailableNetwork.wlanSignalQuality.ToString () + "%";
 
-            public string MAC
-            {
-                get
-                {
+            public string MAC {
+                get {
                     string TempMac = "";
                     for (int i = 0; i < SelectBssEnreyNetwork.dot11Bssid.Length; i++)
-                        TempMac += SelectBssEnreyNetwork.dot11Bssid[i].ToString("x2").PadLeft(2, '0'); // 串接Mac
+                        TempMac += SelectBssEnreyNetwork.dot11Bssid[i].ToString ("x2").PadLeft (2, '0'); // 串接Mac
                     for (int i = 2; i < TempMac.Length; i += 3)
-                        TempMac = TempMac.Insert(i, ":"); // 插入Mac的分隔符號
+                        TempMac = TempMac.Insert (i, ":"); // 插入Mac的分隔符號
 
                     return TempMac;
                 }
             }
 
-            public string Channel => ((ChannelFrequency_enum)(SelectBssEnreyNetwork.ulChCenterFrequency / 1000)).ToString().Substring("Channel_".Length);
+            public string Channel => ((ChannelFrequency_enum) (SelectBssEnreyNetwork.ulChCenterFrequency / 1000)).ToString ().Substring ("Channel_".Length);
 
-            public string Speed
-            {
-                get
-                {
+            public string Speed {
+                get {
                     double MaxSpeed = 0;
                     for (int i = 0; i < SelectBssEnreyNetwork.wlanRateSet.rateSetLength; i++)
                         if (SelectBssEnreyNetwork.wlanRateSet.rateSet[i] != 0)
-                            MaxSpeed = Math.Max(MaxSpeed, SelectBssEnreyNetwork.wlanRateSet.GetRateInMbps(i));
+                            MaxSpeed = Math.Max (MaxSpeed, SelectBssEnreyNetwork.wlanRateSet.GetRateInMbps (i));
 
-                    return MaxSpeed.ToString();
+                    return MaxSpeed.ToString ();
                 }
             }
 
             #endregion
 
-            public Wlan_Hotpot(WLAN_AVAILABLE_NETWORK SelectAvailableNetwork, WLAN_BSS_ENTRY SelectBssEnreyNetwork)
-            {
+            public Wlan_Hotpot (WLAN_AVAILABLE_NETWORK SelectAvailableNetwork, WLAN_BSS_ENTRY SelectBssEnreyNetwork) {
                 this.SelectAvailableNetwork = SelectAvailableNetwork;
                 this.SelectBssEnreyNetwork = SelectBssEnreyNetwork;
             }
@@ -885,8 +828,8 @@ namespace Wifi_ShowNetwork
 
         // https://docs.microsoft.com/en-us/windows/desktop/api/wlanapi/nf-wlanapi-wlanopenhandle
         // https://www.pinvoke.net/default.aspx/wlanapi.WlanOpenHandle
-        [DllImport("Wlanapi.dll")]
-        internal static extern int WlanOpenHandle(
+        [DllImport ("Wlanapi.dll")]
+        internal static extern int WlanOpenHandle (
             uint dwClientVersion,
             IntPtr pReserved, //not in MSDN but required
             [Out] out uint pdwNegotiatedVersion,
@@ -894,88 +837,59 @@ namespace Wifi_ShowNetwork
 
         // https://docs.microsoft.com/en-us/windows/desktop/api/wlanapi/nf-wlanapi-wlanclosehandle
         // https://www.pinvoke.net/default.aspx/wlanapi.WlanCloseHandle
-        [DllImport("Wlanapi.dll")]
-        internal static extern uint WlanCloseHandle(
+        [DllImport ("Wlanapi.dll")]
+        internal static extern uint WlanCloseHandle (
             [In] IntPtr hClientHandle,
             IntPtr pReserved);
 
         // https://docs.microsoft.com/en-us/windows/desktop/api/wlanapi/nf-wlanapi-wlanenuminterfaces
         // https://stackoverflow.com/questions/18557244/wlanenuminterfaces-dont-return-guid-c-sharp-whit-p-invoke
-        [DllImport("Wlanapi.dll")]
-        internal static extern int WlanEnumInterfaces(
-            [In]IntPtr HandleClient,
-            [In, Out]IntPtr Reserved,
-            [In, Out] WLAN_INTERFACE_INFO_LIST ine);
+        [DllImport ("Wlanapi.dll")]
+        internal static extern int WlanEnumInterfaces (
+            [In] IntPtr HandleClient, [In, Out] IntPtr Reserved, [In, Out] WLAN_INTERFACE_INFO_LIST ine);
 
         // https://docs.microsoft.com/zh-tw/windows/desktop/api/wlanapi/nf-wlanapi-wlanregisternotification
         // https://github.com/metageek-llc/ManagedWifi/blob/master/Wlan.cs
-        [DllImport("Wlanapi.dll")]
-        internal static extern int WlanRegisterNotification(
-            [In] IntPtr clientHandle,
-            [In] WLAN_NOTIFICATION_SOURCE notifSource,
-            [In] bool ignoreDuplicate,
-            [In] WlanNotificationCallbackDelegate funcCallback,
-            [In] IntPtr callbackContext,
-            [In] IntPtr reserved,
-            [Out] out WLAN_NOTIFICATION_SOURCE prevNotifSource);
+        [DllImport ("Wlanapi.dll")]
+        internal static extern int WlanRegisterNotification (
+            [In] IntPtr clientHandle, [In] WLAN_NOTIFICATION_SOURCE notifSource, [In] bool ignoreDuplicate, [In] WlanNotificationCallbackDelegate funcCallback, [In] IntPtr callbackContext, [In] IntPtr reserved, [Out] out WLAN_NOTIFICATION_SOURCE prevNotifSource);
 
         // https://docs.microsoft.com/en-us/windows/desktop/api/wlanapi/nf-wlanapi-wlangetavailablenetworklist
         // https://www.pinvoke.net/default.aspx/wlanapi.wlangetavailablenetworklist
-        [DllImport("Wlanapi.dll", SetLastError = true)]
-        public static extern int WlanGetAvailableNetworkList(
-            [In] IntPtr clientHandle,
-            [In, MarshalAs(UnmanagedType.LPStruct)] Guid interfaceGuid,
-            [In] WlanGetAvailableNetworkListFlags flags,
-            [In, Out] IntPtr reservedPtr,
-            [Out] out IntPtr availableNetworkListPtr);
+        [DllImport ("Wlanapi.dll", SetLastError = true)]
+        public static extern int WlanGetAvailableNetworkList (
+            [In] IntPtr clientHandle, [In, MarshalAs (UnmanagedType.LPStruct)] Guid interfaceGuid, [In] WlanGetAvailableNetworkListFlags flags, [In, Out] IntPtr reservedPtr, [Out] out IntPtr availableNetworkListPtr);
 
         // https://docs.microsoft.com/zh-tw/windows/desktop/api/wlanapi/nf-wlanapi-wlangetnetworkbsslist
         // 自行寫
-        [DllImport("Wlanapi.dll")]
-        public static extern int WlanGetNetworkBssList(
-            [In] IntPtr clientHandle,
-            [In, MarshalAs(UnmanagedType.LPStruct)] Guid interfaceGuid,
-            [In] IntPtr dot11SsidInt,
-            [In] DOT11_BSS_TYPE dot11BssType,
-            [In] bool securityEnabled,
-            IntPtr reservedPtr,
-            [Out] out IntPtr wlanBssList);
+        [DllImport ("Wlanapi.dll")]
+        public static extern int WlanGetNetworkBssList (
+            [In] IntPtr clientHandle, [In, MarshalAs (UnmanagedType.LPStruct)] Guid interfaceGuid, [In] IntPtr dot11SsidInt, [In] DOT11_BSS_TYPE dot11BssType, [In] bool securityEnabled,
+            IntPtr reservedPtr, [Out] out IntPtr wlanBssList);
 
         // https://docs.microsoft.com/en-us/windows/desktop/api/wlanapi/nf-wlanapi-wlanfreememory
         // https://www.pinvoke.net/default.aspx/wlanapi.WlanFreeMemory
-        [DllImport("Wlanapi.dll")]
-        public static extern void WlanFreeMemory([In] IntPtr pMemory);
+        [DllImport ("Wlanapi.dll")]
+        public static extern void WlanFreeMemory ([In] IntPtr pMemory);
 
         // https://docs.microsoft.com/en-us/windows/desktop/api/wlanapi/nf-wlanapi-wlangetprofilelist
         // https://www.pinvoke.net/default.aspx/wlanapi.wlangetprofilelist
-        [DllImport("wlanapi.dll", SetLastError = true, CallingConvention = CallingConvention.Winapi)]
-        public static extern uint WlanGetProfileList(
-            [In] IntPtr clientHandle,
-            [In, MarshalAs(UnmanagedType.LPStruct)] Guid interfaceGuid,
-            [In] IntPtr pReserved,
-            [Out] out IntPtr profileList);
+        [DllImport ("wlanapi.dll", SetLastError = true, CallingConvention = CallingConvention.Winapi)]
+        public static extern uint WlanGetProfileList (
+            [In] IntPtr clientHandle, [In, MarshalAs (UnmanagedType.LPStruct)] Guid interfaceGuid, [In] IntPtr pReserved, [Out] out IntPtr profileList);
 
         // https://docs.microsoft.com/en-us/windows/desktop/api/wlanapi/nf-wlanapi-wlandeleteprofile
         // https://www.pinvoke.net/default.aspx/wlanapi.wlandeleteprofile
-        [DllImport("Wlanapi.dll", SetLastError = true, CharSet = CharSet.Unicode)]
-        public static extern uint WlanDeleteProfile(
-            [In] IntPtr hClientHandle,
-            [In, MarshalAs(UnmanagedType.LPStruct)] Guid pInterfaceGuid,
-            [In, MarshalAs(UnmanagedType.LPWStr)]  string strProfileName,
+        [DllImport ("Wlanapi.dll", SetLastError = true, CharSet = CharSet.Unicode)]
+        public static extern uint WlanDeleteProfile (
+            [In] IntPtr hClientHandle, [In, MarshalAs (UnmanagedType.LPStruct)] Guid pInterfaceGuid, [In, MarshalAs (UnmanagedType.LPWStr)] string strProfileName,
             IntPtr pReserved);
 
         // https://docs.microsoft.com/en-us/windows/desktop/api/wlanapi/nf-wlanapi-wlansetprofile
         // https://www.pinvoke.net/default.aspx/wlanapi.WlanSetProfile
-        [DllImport("wlanapi.dll")]
-        public static extern int WlanSetProfile(
-            [In] IntPtr clientHandle,
-            [In, MarshalAs(UnmanagedType.LPStruct)] Guid interfaceGuid,
-            [In] WlanProfileFlags flags,
-            [In, MarshalAs(UnmanagedType.LPWStr)] string profileXml,
-            [In, Optional, MarshalAs(UnmanagedType.LPWStr)] string allUserProfileSecurity,
-            [In] bool overwrite,
-            [In] IntPtr pReserved,
-            [Out] out WlanReasonCode reasonCode);
+        [DllImport ("wlanapi.dll")]
+        public static extern int WlanSetProfile (
+            [In] IntPtr clientHandle, [In, MarshalAs (UnmanagedType.LPStruct)] Guid interfaceGuid, [In] WlanProfileFlags flags, [In, MarshalAs (UnmanagedType.LPWStr)] string profileXml, [In, Optional, MarshalAs (UnmanagedType.LPWStr)] string allUserProfileSecurity, [In] bool overwrite, [In] IntPtr pReserved, [Out] out WlanReasonCode reasonCode);
 
         #endregion
     }

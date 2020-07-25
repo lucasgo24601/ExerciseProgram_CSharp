@@ -1,9 +1,7 @@
 ﻿using System;
 
-namespace JX3_AuxiliarySystem.Hook
-{
-   public class PublicConstansts
-    {
+namespace JX3_AuxiliarySystem.Hook {
+    public class PublicConstansts {
         public const int WH_MOUSE_LL = 14;
         public const int WH_KEYBOARD_LL = 13;
         public const int WH_MOUSE = 7;
@@ -59,8 +57,7 @@ namespace JX3_AuxiliarySystem.Hook
         public const int VK_RALT = 0xA5;
 
         [Flags]
-        public enum MouseEventFlags : uint
-        {
+        public enum MouseEventFlags : uint {
             LEFTDOWN = 0x00000002,
             LEFTUP = 0x00000004,
             MIDDLEDOWN = 0x00000020,

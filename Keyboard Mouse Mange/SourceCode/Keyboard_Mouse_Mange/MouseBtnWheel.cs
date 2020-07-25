@@ -1,12 +1,9 @@
 ﻿using System;
 
-namespace Keyboard_Mouse_Mange
-{
-    class MouseBtnWheel : EventArgs
-    {
-        public MouseBtnWheel(int button, int clicks, int x, int y, int delta)
-        {
-            Button =(MouseButtons)button;
+namespace Keyboard_Mouse_Mange {
+    class MouseBtnWheel : EventArgs {
+        public MouseBtnWheel (int button, int clicks, int x, int y, int delta) {
+            Button = (MouseButtons) button;
             X = x;
             Y = y;
         }
@@ -14,8 +11,7 @@ namespace Keyboard_Mouse_Mange
         public int X { get; set; }
         public int Y { get; set; }
 
-        public enum MouseButtons
-        {
+        public enum MouseButtons {
             Move = APIConstansts.WM_MOUSEMOVE,
             LeftDown = APIConstansts.WM_LBUTTONDOWN,
             LeftUp = APIConstansts.WM_LBUTTONUP,
